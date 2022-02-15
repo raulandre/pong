@@ -44,12 +44,12 @@ while(!r.WindowShouldClose())
     if(r.CheckCollisionCircleRec(new(ball.PosX, ball.PosY), ball.Radius, goal1))
     {
         ResetBall();
-        score.Item1++;
+        score.Item2++;
     }
     else if(r.CheckCollisionCircleRec(new(ball.PosX, ball.PosY), ball.Radius, goal2))
     {
         ResetBall();
-        score.Item2++;
+        score.Item1++;
     }
 
     r.EndDrawing();
