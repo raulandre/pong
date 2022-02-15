@@ -10,8 +10,8 @@ r.SetTraceLogLevel(TraceLogLevel.LOG_NONE);
 r.InitWindow(800, 600, ".NET Pong");
 r.SetTargetFPS(60);
 
-var paddle1 = new Paddle(KeyboardKey.KEY_W, KeyboardKey.KEY_S, 10, 10, 20, 50);
-var paddle2 = new Paddle(KeyboardKey.KEY_UP, KeyboardKey.KEY_DOWN, 770, 10, 20, 50);
+var paddle1 = new Paddle(KeyboardKey.KEY_W, KeyboardKey.KEY_S, 10, 275, 20, 50);
+var paddle2 = new Paddle(KeyboardKey.KEY_UP, KeyboardKey.KEY_DOWN, 770, 275, 20, 50);
 var ball = new Ball(400, 300, 20);
 
 var goal1 = new Rectangle(0, 0, 10, 600);
@@ -31,6 +31,7 @@ while(!r.WindowShouldClose())
 {
     r.BeginDrawing();
     r.ClearBackground(Color.RAYWHITE);
+    r.DrawLine(400, 0, 400, 600, Color.BLACK);
 
     paddle1.Draw();
     paddle2.Draw();
@@ -38,6 +39,7 @@ while(!r.WindowShouldClose())
 
     r.DrawText(score.Item1.ToString(), 350, 10, 20, Color.RED);
     r.DrawText(score.Item2.ToString(), 430, 10, 20, Color.RED);
+
 
     if(r.CheckCollisionCircleRec(new(ball.PosX, ball.PosY), ball.Radius, goal1))
     {
