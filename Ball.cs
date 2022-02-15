@@ -10,13 +10,14 @@ public class Ball
     public int SpeedY { get; set; }
     public int Radius { get; set; }
     public Color Color { get; set; } = Color.RED;
-    public bool Stuck { get; set; } = true;
+    public bool Stuck { get; set; }
 
     public Ball(int posX, int posY, int radius)
     {
         PosX = posX;
         PosY = posY;
         Radius = radius;
+        Stuck = true;
     }
 
     public void RegisterPaddles(params Paddle[] paddles)
@@ -45,6 +46,7 @@ public class Ball
                     if(SpeedY == 0) SpeedY = 3;
 
                     SpeedY = new Random().Next(0, 1) == 0 ? -SpeedY : SpeedY;
+                    SpeedY += new Random().Next(0, 5);
 
                     PosX += SpeedX;
                     PosY += SpeedY;
