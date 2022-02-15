@@ -52,6 +52,11 @@ public class Ball
                     PosX += SpeedX;
                     PosY += SpeedY;
                 }
+            
+            if(PosY + Radius <= 0 || PosY + Radius >= 600)
+                SpeedY = -SpeedY;
+            if(PosX - Radius <= 0 || PosX + Radius >= 800)
+                SpeedX = -SpeedX;
         }
         Raylib.DrawCircle(PosX, PosY, Radius, Color);
     }
