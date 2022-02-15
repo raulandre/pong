@@ -31,7 +31,7 @@ public class Ball
             if(Stuck)
             {
                 Stuck = false;
-                SpeedX = -10;
+                SpeedX = new Random().Next(0, 2) == 0 ? -10 : 10;
             }
     }
 
@@ -45,8 +45,8 @@ public class Ball
                     SpeedX = -SpeedX;
                     if(SpeedY == 0) SpeedY = 3;
 
-                    SpeedY = new Random().Next(0, 1) == 0 ? -SpeedY : SpeedY;
-                    SpeedY += new Random().Next(0, 5);
+                    SpeedY = new Random().Next(0, 2) == 0 ? -SpeedY : SpeedY;
+                    SpeedY += new Random().Next(0, 6);
 
                     PosX += SpeedX;
                     PosY += SpeedY;
