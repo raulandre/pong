@@ -42,7 +42,9 @@ public class Ball
                 if(Raylib.CheckCollisionCircleRec(new(PosX, PosY), Radius, paddle.Rectangle))
                 {
                     SpeedX = -SpeedX;
-                    SpeedY = -SpeedY;
+                    if(SpeedY == 0) SpeedY = 3;
+
+                    SpeedY = new Random().Next(0, 1) == 0 ? -SpeedY : SpeedY;
 
                     PosX += SpeedX;
                     PosY += SpeedY;
